@@ -1,0 +1,13 @@
+# latex
+**/*.aux
+**/*.log
+**/*.out
+**/*.synctex.gz
+**/*.bcf
+**/*.nav
+**/*.run.xml
+**/*.snm
+**/*.toc
+
+# mac
+**/.DS_Store
