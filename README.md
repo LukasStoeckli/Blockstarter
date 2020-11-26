@@ -1,1 +1,1 @@
-# Smart contract
+# Smart contract course project
