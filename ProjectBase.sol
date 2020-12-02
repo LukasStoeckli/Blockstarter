@@ -1,9 +1,9 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-abstract contract A_CryptoProjectBase {
-    event EvProjectStarts(address project);
-    event EvProjectCompleted(address project);
+abstract contract ProjectBase {
+    event ProjectStarted(address project);
+    event ProjectCompleted(address project);
     
     address payable public founder;
     string public name;
@@ -49,7 +49,7 @@ abstract contract A_CryptoProjectBase {
         receivedFunds[msg.sender] += msg.value;
         if(!projectStarted && requestedBudget <= totalReceivedFunds){
             projectStarted = true;
-            emit EvProjectStarts(address(this));
+            emit ProjectStarted(address(this));
         }
     }
     
@@ -64,7 +64,7 @@ abstract contract A_CryptoProjectBase {
     
     function completeProject() internal isFounder {
         projectCompleted = true;
-        emit EvProjectCompleted(address(this));
+        emit ProjectCompleted(address(this));
     }
     
 }

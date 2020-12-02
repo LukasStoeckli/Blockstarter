@@ -1,13 +1,13 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import {CryptoProjectUtils} from "./CryptoProjectUtils.sol";
-import "./B_CryptoProjectWithMilestones.sol";
+import {ProjectUtils} from "./ProjectUtils.sol";
+import "./ProjectWithMilestones.sol";
 
-contract C_CryptoProjectWithAngels is B_CryptoProjectWithMilestones {
-    event EvAngelFunded(address project, address angel, uint amount);
-    event EvProjectResumes(address project);
-    event EvProjectHalts(address project);
+contract ProjectWithAngels is ProjectWithMilestones {
+    event AngelFunded(address project, address angel, uint amount);
+    event ProjectHalts(address project);
+    event ProjectResumes(address project);
     
     uint public FUND_FACTOR_TO_BECOME_AN_ANGEL = 100;
     
@@ -18,7 +18,7 @@ contract C_CryptoProjectWithAngels is B_CryptoProjectWithMilestones {
     
     
     constructor(string memory _name, string memory _description, uint _requestedBudget, address payable _founder,
-    CryptoProjectUtils.Milestone[] memory _milestones) B_CryptoProjectWithMilestones(_name, _description, _requestedBudget, _founder, _milestones) {}
+    ProjectUtils.Milestone[] memory _milestones) ProjectWithMilestones(_name, _description, _requestedBudget, _founder, _milestones) {}
     
     modifier isAngel(){
         require(angels[msg.sender], "Angel rank needed, to become an angel, one has to participate at least 1/FUND_FACTOR_TO_BECOME_AN_ANGEL of the total budget.");
@@ -34,7 +34,7 @@ contract C_CryptoProjectWithAngels is B_CryptoProjectWithMilestones {
         super.fundProject();
         if(receivedFunds[msg.sender] * FUND_FACTOR_TO_BECOME_AN_ANGEL > requestedBudget){
             angels[msg.sender] = true;
-            emit EvAngelFunded(address(this), msg.sender, msg.value);
+            emit AngelFunded(address(this), msg.sender, msg.value);
         }
     }
     
@@ -67,9 +67,9 @@ contract C_CryptoProjectWithAngels is B_CryptoProjectWithMilestones {
         }
         bool isHalted = isProjectHalted();
         if(wasHalted && !isHalted){
-            emit EvProjectResumes(address(this));
+            emit ProjectResumes(address(this));
         } else if(!wasHalted && isHalted){
-            emit EvProjectHalts(address(this));
+            emit ProjectHalts(address(this));
         }
     }
     

@@ -1,18 +1,18 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import {CryptoProjectUtils} from "./CryptoProjectUtils.sol";
-import "./A_CryptoProjectBase.sol";
+import {ProjectUtils} from "./ProjectUtils.sol";
+import "./ProjectBase.sol";
 
-contract B_CryptoProjectWithMilestones is A_CryptoProjectBase {
+contract ProjectWithMilestones is ProjectBase {
     
-    using CryptoProjectUtils for CryptoProjectUtils.Milestone;
-    CryptoProjectUtils.Milestone[] public milestones;
+    using ProjectUtils for ProjectUtils.Milestone;
+    ProjectUtils.Milestone[] public milestones;
     
     
     constructor(string memory _name, string memory _description, uint _requestedBudget, address payable _founder,
-    CryptoProjectUtils.Milestone[] memory _milestones) A_CryptoProjectBase(_name, _description, _requestedBudget, _founder) {
-        CryptoProjectUtils.checkMilestonesValid(_milestones);
+    ProjectUtils.Milestone[] memory _milestones) ProjectBase(_name, _description, _requestedBudget, _founder) {
+        ProjectUtils.checkMilestonesValid(_milestones);
         // Copying of type struct memory[] memory to storage not yet supported
         for (uint i = 0; i < _milestones.length; i++){
             milestones.push(_milestones[i]);

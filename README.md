@@ -1,1 +1,1 @@
-# Smart contract course project
+# Blockstarter
