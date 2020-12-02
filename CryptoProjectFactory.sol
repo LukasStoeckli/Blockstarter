@@ -16,6 +16,18 @@ contract CryptoProjectFactory {
         projects.push(new C_CryptoProjectWithAngels(_name, _description, _requestedBudget, _founder, _milestones));
         emit NewCryptoProject(projects.length - 1, _name, _requestedBudget);
     }
+
+    function createProjectWithArrays(string memory _name, string memory _description, uint _requestedBudget,
+    address payable _founder, string[] memory _descriptions, uint[] memory _deadlines, uint[] memory _percentages) public {
+        require(_descriptions.length == _deadlines.length, "Milestone arrays differ in length.");
+        require(_descriptions.length == _percentages.length, "Milestone arrays differ in length.");
+        uint len = _descriptions.length;
+        CryptoProjectUtils.Milestone[] memory milestones = new CryptoProjectUtils.Milestone[](len);
+        for (uint i = 0; i < len; i++) {
+            milestones[i] = CryptoProjectUtils.Milestone(false, _descriptions[i], block.timestamp + _deadlines[i] * 1 days, _percentages[i]);
+        }
+        createProject(_name, _description, _requestedBudget * 1 ether, _founder, milestones);
+    }
     
     function defaultTestProject() public {
         CryptoProjectUtils.Milestone[] memory milestones = new CryptoProjectUtils.Milestone[](3);
