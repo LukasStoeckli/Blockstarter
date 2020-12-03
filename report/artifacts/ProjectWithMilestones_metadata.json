@@ -1,0 +1,303 @@
+{
+	"compiler": {
+		"version": "0.7.5+commit.eb77ed08"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_description",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_requestedBudget",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address payable",
+						"name": "_founder",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "bool",
+								"name": "completed",
+								"type": "bool"
+							},
+							{
+								"internalType": "string",
+								"name": "description",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "deadline",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "percentageOfBudget",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct ProjectUtils.Milestone[]",
+						"name": "_milestones",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "project",
+						"type": "address"
+					}
+				],
+				"name": "ProjectCompleted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "project",
+						"type": "address"
+					}
+				],
+				"name": "ProjectStarted",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_mid",
+						"type": "uint256"
+					}
+				],
+				"name": "completeMilestone",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "description",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "founder",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "fundProject",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "milestones",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "completed",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "percentageOfBudget",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "projectCompleted",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "projectStarted",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "releseableContributedFunds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "requestFundsBack",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "requestedBudget",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalReceivedFunds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"browser/ProjectWithMilestones.sol": "ProjectWithMilestones"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"browser/ProjectBase.sol": {
+			"keccak256": "0x2b2f6e0a644dbcce6931cfe32d6c9d74c579704fa69df22a9f276ae85c404ea8",
+			"urls": [
+				"bzz-raw://dff6b7638e12be7cc10334784a70546a96115e07a7096bade568be742dd3608c",
+				"dweb:/ipfs/QmQiEZDf3tut1hCE1LeVLfdHmDq82JP3vpkM2xqPK77SJ3"
+			]
+		},
+		"browser/ProjectUtils.sol": {
+			"keccak256": "0x878fd175b281d8bf51fbbc6e52847b49b7d48e61719a6c711f346cdade831abe",
+			"urls": [
+				"bzz-raw://48b66143399781d55f26a83b44116c95a90e91391843a4cfa373568a7fd496b3",
+				"dweb:/ipfs/QmTULZaiWoGC6m9RcwzupeETNEqTtzcw6uiqe1EKyDwHTR"
+			]
+		},
+		"browser/ProjectWithMilestones.sol": {
+			"keccak256": "0x63e9928617c697e81c9c339deba127b197431ed1f30bd9c243de3d010a02a7e6",
+			"urls": [
+				"bzz-raw://e50004c69c3071ceb94b114b22d2a8e945e7191207b1f1aecf65fb845bddeb79",
+				"dweb:/ipfs/Qmc3iUVLY9hVSZbU4hm9TqisuhZHM8yt2uXrDuMDwgM58F"
+			]
+		}
+	},
+	"version": 1
+}

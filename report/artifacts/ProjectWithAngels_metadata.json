@@ -1,0 +1,440 @@
+{
+	"compiler": {
+		"version": "0.7.5+commit.eb77ed08"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_description",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_requestedBudget",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address payable",
+						"name": "_founder",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "bool",
+								"name": "completed",
+								"type": "bool"
+							},
+							{
+								"internalType": "string",
+								"name": "description",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "deadline",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "percentageOfBudget",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct ProjectUtils.Milestone[]",
+						"name": "_milestones",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "project",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "angel",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "AngelFunded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "project",
+						"type": "address"
+					}
+				],
+				"name": "ProjectCompleted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "project",
+						"type": "address"
+					}
+				],
+				"name": "ProjectHalts",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "project",
+						"type": "address"
+					}
+				],
+				"name": "ProjectResumes",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "project",
+						"type": "address"
+					}
+				],
+				"name": "ProjectStarted",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "FUND_FACTOR_TO_BECOME_AN_ANGEL",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_mid",
+						"type": "uint256"
+					}
+				],
+				"name": "completeMilestone",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "delay",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "description",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "founder",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "fundProject",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "haltedAt",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "isProjectHalted",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "milestones",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "completed",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "percentageOfBudget",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "projectCompleted",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "projectHalt",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "projectStarted",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "releseableContributedFunds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "requestFundsBack",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "requestHaltProject",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "requestResumeProject",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "requestedBudget",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalReceivedFunds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"browser/ProjectWithAngels.sol": "ProjectWithAngels"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"browser/ProjectBase.sol": {
+			"keccak256": "0x2b2f6e0a644dbcce6931cfe32d6c9d74c579704fa69df22a9f276ae85c404ea8",
+			"urls": [
+				"bzz-raw://dff6b7638e12be7cc10334784a70546a96115e07a7096bade568be742dd3608c",
+				"dweb:/ipfs/QmQiEZDf3tut1hCE1LeVLfdHmDq82JP3vpkM2xqPK77SJ3"
+			]
+		},
+		"browser/ProjectUtils.sol": {
+			"keccak256": "0x6180ff98c8a69ea19501c87844108ce96919de59848b8fb113a6395f01c1a057",
+			"urls": [
+				"bzz-raw://591195f7b0226898894a9bd86d8f8a44fca3917c6ddae3902d083512677d3c59",
+				"dweb:/ipfs/QmZaiX77ixMSw6BHSdcVqRAYdYfb16nckbRSiLRQ332h3i"
+			]
+		},
+		"browser/ProjectWithAngels.sol": {
+			"keccak256": "0x369360768b618af9987398163e026ae17d45f274791bc05077b5ab703c34ce93",
+			"urls": [
+				"bzz-raw://62fbfdb3778f4e4e2aa9bf1264b68cf76bba75b7a997c545a9b0653ef6a48bdf",
+				"dweb:/ipfs/QmXFSLUatzzB6q3e2AnFAnJ6eDxW1iHK1MbYqk4HEPRmhF"
+			]
+		},
+		"browser/ProjectWithMilestones.sol": {
+			"keccak256": "0x63e9928617c697e81c9c339deba127b197431ed1f30bd9c243de3d010a02a7e6",
+			"urls": [
+				"bzz-raw://e50004c69c3071ceb94b114b22d2a8e945e7191207b1f1aecf65fb845bddeb79",
+				"dweb:/ipfs/Qmc3iUVLY9hVSZbU4hm9TqisuhZHM8yt2uXrDuMDwgM58F"
+			]
+		}
+	},
+	"version": 1
+}

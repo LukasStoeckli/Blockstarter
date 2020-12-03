@@ -1,0 +1,80 @@
+{
+	"compiler": {
+		"version": "0.7.5+commit.eb77ed08"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "bool",
+								"name": "completed",
+								"type": "bool"
+							},
+							{
+								"internalType": "string",
+								"name": "description",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "deadline",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "percentageOfBudget",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct ProjectUtils.Milestone[]",
+						"name": "_milestones",
+						"type": "tuple[]"
+					}
+				],
+				"name": "checkMilestonesValid",
+				"outputs": [],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"browser/ProjectUtils.sol": "ProjectUtils"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"browser/ProjectUtils.sol": {
+			"keccak256": "0x878fd175b281d8bf51fbbc6e52847b49b7d48e61719a6c711f346cdade831abe",
+			"urls": [
+				"bzz-raw://48b66143399781d55f26a83b44116c95a90e91391843a4cfa373568a7fd496b3",
+				"dweb:/ipfs/QmTULZaiWoGC6m9RcwzupeETNEqTtzcw6uiqe1EKyDwHTR"
+			]
+		}
+	},
+	"version": 1
+}
