@@ -15,6 +15,9 @@ contract ProjectWithAngels is ProjectWithMilestones {
     
     uint public projectHalt;
     mapping (address => bool) angelRequestedHalt;
+
+    uint public haltedAt = 0;
+    uint public delay = 0;
     
     
     constructor(string memory _name, string memory _description, uint _requestedBudget, address payable _founder,
@@ -39,6 +42,7 @@ contract ProjectWithAngels is ProjectWithMilestones {
     }
     
     function completeMilestone(uint _mid) public override isFounder projectRunning {
+        require(block.timestamp > milestones[_mid].deadline + delay, "Milestone deadline not reached");
         super.completeMilestone(_mid);
         if(projectHalt > 0){
             updateHaltStatus(projectHalt * milestones[_mid].percentageOfBudget / 100, true);
@@ -67,8 +71,10 @@ contract ProjectWithAngels is ProjectWithMilestones {
         }
         bool isHalted = isProjectHalted();
         if(wasHalted && !isHalted){
+            delay += block.timestamp - haltedAt;
             emit ProjectResumes(address(this));
         } else if(!wasHalted && isHalted){
+            haltedAt = block.timestamp;
             emit ProjectHalts(address(this));
         }
     }
