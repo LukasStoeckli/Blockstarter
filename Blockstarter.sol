@@ -24,9 +24,9 @@ contract Blockstarter {
         uint len = _descriptions.length;
         ProjectUtils.Milestone[] memory milestones = new ProjectUtils.Milestone[](len);
         for (uint i = 0; i < len; i++) {
-            milestones[i] = ProjectUtils.Milestone(false, _descriptions[i], block.timestamp + _deadlines[i] * 1 days, _percentages[i]);
+            milestones[i] = ProjectUtils.Milestone(false, _descriptions[i], _deadlines[i], _percentages[i]);
         }
-        createProject(_name, _description, _requestedBudget * 1 ether, _founder, milestones);
+        createProject(_name, _description, _requestedBudget, _founder, milestones);
     }
     
     function defaultTestProject() public {
