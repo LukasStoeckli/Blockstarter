@@ -17,7 +17,7 @@ contract Blockstarter {
         emit NewProject(projects.length - 1, _name, _requestedBudget);
     }
 
-    function createProjectWithArrays(string memory _name, string memory _description, uint _requestedBudget,
+    function createProject(string memory _name, string memory _description, uint _requestedBudget,
     address payable _founder, string[] memory _descriptions, uint[] memory _deadlines, uint[] memory _percentages) public {
         require(_descriptions.length == _deadlines.length, "Milestone arrays differ in length.");
         require(_descriptions.length == _percentages.length, "Milestone arrays differ in length.");
