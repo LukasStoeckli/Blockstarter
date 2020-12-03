@@ -62,17 +62,15 @@
 %%%%%%%%%
 % CONTENT
 %%%%%%%%%
-\begin{frame}
+\begin{frame}{Outline}
 	\begin{tabularx}{\textwidth}{X}
 		\hline
 		\rowcolor{hcolor}
 		Concept\\
 		\hline
-		Project base\\
+		Workflow\\
 		\hline
-		Milestones\\
-		\hline
-		Angels\\
+		Implementation\\
 		\hline
 		Project creation\\
 		\hline
@@ -85,24 +83,58 @@
 
 
 \begin{frame}{Concept}
-bla bla bla create project that needs funds. get people to contribute funds, if goal is reached, claim funds. extended by different milestones. extended by angels that can halt / resume the project bla bla bla asdf reeeeeeeeeeeee
+Blockstarter is a decentralized application enabling the cryptosphere to crowdfund and crowdcontrol innovative project ideas. The dApp involves three types of stakeholders:
+\begin{itemize}
+	\item Founders: can create projects with budget and milestones
+	\item Angels: can finance projects and vote on funds release
+	\item Contributors: can finance project but do not have voting right
+\end{itemize}
 \end{frame}
 
-
-%%%%%%%%%
-% CONTENT
-%%%%%%%%%
 \begin{frame}
 	\begin{tabularx}{\textwidth}{X}
 		\hline
 		Concept\\
 		\hline
 		\rowcolor{hcolor}
-		Project base\\
+		Workflow\\
 		\hline
-		Milestones\\
+		Implementation\\
 		\hline
-		Angels\\
+		Project creation\\
+		\hline
+		Demo\\
+		\hline
+	\end{tabularx}
+\end{frame}
+
+\begin{frame}{Workflow - 1}
+\begin{itemize}
+	\item Founder creates project specifying idea details, total budget requested, milestones (each with description, deadline and percentage of fund release)
+	\item Anyone can fund to the project, contributions above 1\% of the total requested budget grant Angel rank.
+	\item Once the requested budget is achieved, the project starts. Founder is supposed to communicate through an external service (website, social networks, etc) the evolution of the project to the community. Contributions can still take place.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Workflow - 2}
+\begin{itemize}
+	\item When a milestone's deadline is reached, the founder can request the associated funds
+	\item Contributors can request their funds back any time
+	\item Angels can decide any time to request the project to halt (resume) if they are dissatisfied (reassured) with the project development. Delays induced by haltings are added to the milestones original delays.
+	\item Upon the final milestone completion, remaining funds are all transferred to the founder.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\begin{tabularx}{\textwidth}{X}
+		\hline
+		Concept\\
+		\hline
+		Workflow\\
+		\hline
+		\rowcolor{hcolor}
+		Implementation\\
 		\hline
 		Project creation\\
 		\hline
@@ -112,18 +144,20 @@ bla bla bla create project that needs funds. get people to contribute funds, if 
 \end{frame}
 
 
-\begin{frame}{Project base}
+\begin{frame}{Implementation - Structure}
+Hierarchy of three classes:
 \begin{itemize}
-	\item Contribute funds to a project
+	\item ProjectBase: core components of a project
 	\item[]
-	\item Complete the project (founder)
+	\item ProjectWithMilestones: milestone logic
 	\item[]
-	\item Request the funds back
+	\item ProjectWithAngels: angel rank voting logic
+	\item[]
 \end{itemize}
+And an additional library for the milestone struct and milestone array validation: ProjectUtils
 \end{frame}
 
-
-\begin{frame}{Project base}
+\begin{frame}{Implementation - ProjectBase}
 \begin{columns}
 \begin{column}{0.55\textwidth}
 \begin{center}
@@ -165,30 +199,7 @@ bla bla bla create project that needs funds. get people to contribute funds, if 
 \end{frame}
 
 
-%%%%%%%%%
-% CONTENT
-%%%%%%%%%
-\begin{frame}
-	\begin{tabularx}{\textwidth}{X}
-		\hline
-		Concept\\
-		\hline
-		Project base\\
-		\hline
-		\rowcolor{hcolor}
-		Milestones\\
-		\hline
-		Angels\\
-		\hline
-		Project creation\\
-		\hline
-		Demo\\
-		\hline
-	\end{tabularx}
-\end{frame}
-
-
-\begin{frame}[fragile]{Milestones}
+\begin{frame}[fragile]{Implementation - Milestones}
 \begin{columns}
 \begin{column}{0.4\textwidth}
 \centering
@@ -219,34 +230,7 @@ bla bla bla create project that needs funds. get people to contribute funds, if 
 \end{frame}
 
 
-
-
-
-%%%%%%%%%
-% CONTENT
-%%%%%%%%%
-\begin{frame}
-	\begin{tabularx}{\textwidth}{X}
-		\hline
-		Concept\\
-		\hline
-		Project base\\
-		\hline
-		Milestones\\
-		\hline
-		\rowcolor{hcolor}
-		Angels\\
-		\hline
-		Project creation\\
-		\hline
-		Demo\\
-		\hline
-	\end{tabularx}
-\end{frame}
-
-
-
-\begin{frame}{Angels}
+\begin{frame}{Implementation - ProjectWithAngels}
 \begin{itemize}
     \item inherits from project with milestones
 	\item[]
