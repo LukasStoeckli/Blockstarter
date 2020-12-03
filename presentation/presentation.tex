@@ -49,6 +49,8 @@
 
 
 \begin{document}
+
+
 \begin{frame}[t,plain]
 	\titlepage
 \end{frame}
@@ -148,18 +150,37 @@ asdf
 \end{frame}
 
 
-\begin{frame}{Milestones}
-
-
-
-
-asdf
-%\begin{figure}
-%\centering
-%\includegraphics[width=0.8\textwidth]{resources/iiifRegion.png}
-%\caption{.../125,15,120,140/full/0/default.jpg}
-%\end{figure}
+\begin{frame}[fragile]{Milestones}
+\begin{columns}
+\begin{column}{0.4\textwidth}
+\centering
+\begin{lstlisting}[basicstyle=\tiny]
+    struct Milestone {
+        bool completed;
+        string description;
+        uint deadline;
+        uint percentageOfBudget;
+    }
+\end{lstlisting}
+\end{column}
+\begin{column}{0.6\textwidth}
+\centering
+	\begin{itemize}
+		\item inherits from project base
+		\item[]
+		\item each project has array of milestones
+		\item[]
+		\item not all funds released at once
+		\item[]
+		\item individual deadlines
+		\item[]
+		\item individual payouts
+	\end{itemize}
+\end{column}
+\end{columns}
 \end{frame}
+
+
 
 
 
@@ -188,12 +209,18 @@ asdf
 
 
 \begin{frame}{Angels}
-asdf
-%\begin{figure}
-%\centering
-%\includegraphics[width=0.8\textwidth]{resources/iiifRegion.png}
-%\caption{.../125,15,120,140/full/0/default.jpg}
-%\end{figure}
+\begin{itemize}
+    \item inherits from project with milestones
+	\item[]
+	\item users that contribute a certain amount become angels
+	\item[]
+	\item angels can request to halt / resume the project
+	\item when the project is halted, no funds can be released by the founder
+	\item[]
+	\item when a project is halted, the open milestones are delayed
+	\item[]
+	\item Emits events when new angel is born or project is halted / resumed
+\end{itemize}
 \end{frame}
 
 
