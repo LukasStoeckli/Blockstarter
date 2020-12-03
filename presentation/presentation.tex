@@ -147,15 +147,17 @@ Blockstarter is a decentralized application enabling the cryptosphere to crowdfu
 \begin{frame}{Implementation - Structure}
 Hierarchy of three classes:
 \begin{itemize}
-	\item ProjectBase
+	\item ProjectBase: core components of a project
 	\item[]
-	\item ProjectWithMilestones
+	\item ProjectWithMilestones: milestone logic
 	\item[]
-	\item ProjectWithAngels
+	\item ProjectWithAngels: angel rank voting logic
+	\item[]
 \end{itemize}
+And an additional library for the milestone struct and milestone array validation: ProjectUtils
 \end{frame}
 
-\begin{frame}{Implementation Projectbase}
+\begin{frame}{Implementation - ProjectBase}
 \begin{columns}
 \begin{column}{0.55\textwidth}
 \begin{center}
@@ -228,34 +230,7 @@ Hierarchy of three classes:
 \end{frame}
 
 
-
-
-
-%%%%%%%%%
-% CONTENT
-%%%%%%%%%
-\begin{frame}
-	\begin{tabularx}{\textwidth}{X}
-		\hline
-		Concept\\
-		\hline
-		Project base\\
-		\hline
-		Milestones\\
-		\hline
-		\rowcolor{hcolor}
-		Angels\\
-		\hline
-		Project creation\\
-		\hline
-		Demo\\
-		\hline
-	\end{tabularx}
-\end{frame}
-
-
-
-\begin{frame}{Angels}
+\begin{frame}{Implementation - ProjectWithAngels}
 \begin{itemize}
     \item inherits from project with milestones
 	\item[]
